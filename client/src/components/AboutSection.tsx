@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
 export default function AboutSection() {
@@ -27,12 +28,14 @@ export default function AboutSection() {
               training programs and industry partnerships that bridge the gap between education and employment.
             </p>
             
-            <Button 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors"
-              data-testid="button-learn-more"
-            >
-              Learn More
-            </Button>
+            <Link href="/about">
+              <Button
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors"
+                data-testid="button-learn-more"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
