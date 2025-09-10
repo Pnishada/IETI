@@ -1,5 +1,6 @@
 import { GraduationCap, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 export default function NewsSection() {
   return (
@@ -90,13 +91,15 @@ export default function NewsSection() {
 
         {/* More Button */}
         <div className="text-center mt-12">
+           <Link href="/news">
           <Button 
             variant="outline" 
-            className="bg-white border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors shadow-sm"
-            data-testid="button-more-news"
+           className="bg-white border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors shadow-sm"
+          data-testid="button-more-news"
           >
             More News & Announcements
           </Button>
+          </Link>
         </div>
       </div>
     </section>

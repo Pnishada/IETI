@@ -8,6 +8,10 @@ import TrainingCenters from "@/pages/training-centers";
 import Gallery from "@/pages/gallery";
 import Search from "@/pages/search";
 import NotFound from "@/pages/not-found";
+import ProgramsSection from "./components/ProgramsSection";
+import ProgramDetails from "./pages/programs/[id]";
+import NewsPage from "./pages/news";
+import NewsDetails from "./pages/news/[id]";
 
 function Router() {
   return (
@@ -16,6 +20,11 @@ function Router() {
       <Route path="/training-centers" component={TrainingCenters} />
       <Route path="/gallery" component={Gallery} />
       <Route path="/search" component={Search} />
+       <Route path="/programs" component={ProgramsSection} />
+      <Route path="/programs/:id" component={ProgramDetails} />
+       <Route path="/news" component={NewsPage} />
+       <Route path="/news/:id" component={NewsDetails} />
+
       <Route component={NotFound} />
     </Switch>
   );
