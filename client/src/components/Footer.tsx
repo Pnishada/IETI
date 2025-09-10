@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                 <GraduationCap className="text-primary-foreground w-4 h-4" />
               </div>
-              <span className="text-lg font-bold">NAITA</span>
+              <span className="text-lg font-bold">IETI</span>
             </div>
             <p className="text-slate-400 text-sm" data-testid="text-footer-description">
               Building a skilled nation through quality training and apprenticeship programs.
@@ -62,7 +62,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 mt-8 pt-8 text-center">
           <p className="text-slate-400 text-sm" data-testid="text-footer-copyright">
-            © 2024 NAITA - National Apprentice & Industrial Training Authority. All rights reserved.
+            © 2025 IETI - Industrial Engineering Training Institute.
           </p>
         </div>
       </div>

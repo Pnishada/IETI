@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/ui/Header"; // Header component
-import Footer from "../components/ui/Footer"; // Footer component
+import Header from "../components/Header"; // Header component
+import Footer from "../components/Footer"; // Footer component
 import { motion } from "framer-motion";
 import { Card, CardContent } from "../components/ui/card";
 import { Building2, Award, Users } from "lucide-react";
