@@ -9,10 +9,10 @@ export default function HeroSection() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight" data-testid="text-hero-title">
-                Building a Skilled Nation with NAITA
+                Building a Skilled Nation with IETI
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed" data-testid="text-hero-subtitle">
-                National Apprentice & Industrial Training Authority (NAITA)
+                Industrial Engineering Training Institute (IETI)
               </p>
             </div>
             
