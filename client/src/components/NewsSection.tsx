@@ -25,10 +25,10 @@ export default function NewsSection() {
               <div className="flex-1">
                 <div className="text-sm text-slate-500 mb-2" data-testid="text-testimonial-date">1 alarm left - 4d</div>
                 <h3 className="font-bold text-slate-900 mb-2 leading-tight" data-testid="text-testimonial-title">
-                  NAITA has played a crucial role in my career development
+                  IETI has played a crucial role in my career development
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed" data-testid="text-testimonial-content">
-                  Through NAITA's comprehensive training programs, I gained the skills and knowledge needed 
+                  Through IETI's comprehensive training programs, I gained the skills and knowledge needed 
                   to advance in my career. The practical experience and industry connections have been invaluable.
                 </p>
                 <div className="mt-4 text-sm font-medium text-slate-800" data-testid="text-testimonial-name">Adveir Ojente</div>
@@ -42,7 +42,7 @@ export default function NewsSection() {
             <div className="space-y-4">
               <div className="text-sm text-slate-500" data-testid="text-mobile-date">Most recent</div>
               <h3 className="font-bold text-slate-900 text-xl leading-tight" data-testid="text-mobile-title">
-                NAITA Mobile Application
+                IETI Mobile Application
               </h3>
               
               {/* Mobile app mockup */}
@@ -53,12 +53,12 @@ export default function NewsSection() {
                       <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
                         <GraduationCap className="text-white w-3 h-3" />
                       </div>
-                      <span className="text-sm font-bold">NAITA</span>
+                      <span className="text-sm font-bold">IETI</span>
                       <Menu className="w-4 h-4 text-slate-400 ml-auto" />
                     </div>
                     <div className="space-y-2">
-                      <h4 className="font-bold text-sm">Building a Skilled Nation with NAITA</h4>
-                      <p className="text-xs text-slate-600">National Apprentice & Industrial Training Authority (NAITA)</p>
+                      <h4 className="font-bold text-sm">Building a Skilled Nation with IETI</h4>
+                      <p className="text-xs text-slate-600">Industrial Engineering Training Institute (IETI)</p>
                     </div>
                     <div className="flex space-x-2">
                       <Button 

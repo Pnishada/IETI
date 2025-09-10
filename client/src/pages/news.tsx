@@ -9,8 +9,8 @@ import Footer from "@/components/Footer";
 const newsData: NewsArticle[] = [
   {
     id: 1,
-    title: "NAITA Mobile Application",
-    content: "Building a Skilled Nation with NAITA...",
+    title: "IETI Computer Graphic Designer",
+    content: "Building a Skilled Nation with IETI...",
     date: "2025-09-10",
     category: "Technology",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
