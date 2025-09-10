@@ -71,7 +71,7 @@ export default function Header() {
             <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
               <GraduationCap className="text-primary-foreground w-5 h-5" />
             </div>
-            <span className="text-xl font-bold text-slate-800">NAITA</span>
+            <span className="text-xl font-bold text-slate-800">IETI</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -202,7 +202,7 @@ export default function Header() {
               className="w-full text-left bg-primary text-primary-foreground px-3 py-2 rounded-lg mt-2"
               data-testid="button-apply-mobile"
             >
-              Apply Now
+              Download
             </Button>
           </div>
         </div>
