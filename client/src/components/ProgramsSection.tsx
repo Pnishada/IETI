@@ -4,21 +4,25 @@ import { Button } from "@/components/ui/button";
 export default function ProgramsSection() {
   const programs = [
     {
+      id: "apprenticeship",
       icon: Building,
       title: "Apprenticeship Programs",
       testId: "card-apprenticeship"
     },
     {
+      id: "nvq" ,
       icon: GraduationCap,
       title: "NVQ",
       testId: "card-nvq"
     },
     {
+      id: "special-training" ,
       icon: Settings,
       title: "Special Training Programs",
       testId: "card-special-training"
     },
     {
+      id: "career-development",
       icon: TrendingUp,
       title: "Career Development",
       testId: "card-career-development"
@@ -49,13 +53,15 @@ export default function ProgramsSection() {
                 <h3 className="font-bold text-slate-900 mb-4" data-testid={`text-${program.testId}-title`}>
                   {program.title}
                 </h3>
-                <Button 
-                  variant="link" 
+                <Button
+                  variant="link"
                   className="text-primary hover:text-primary/80 font-medium transition-colors p-0"
                   data-testid={`button-${program.testId}-details`}
-                >
-                  View Details
-                </Button>
+                  onClick={() => window.location.href = `/programs/${program.id}`}
+                    >
+                    View Details
+                  </Button>
+
               </div>
             );
           })}
