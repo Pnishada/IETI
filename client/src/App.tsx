@@ -1,6 +1,6 @@
 import { Switch, Route } from "wouter";
 import Home from "@/pages/home";
-import TrainingCenters from "@/pages/depatment";
+import Departments from "./pages/depatment";
 import Gallery from "@/pages/gallery";
 import Search from "@/pages/search";
 import NotFound from "@/pages/not-found";
@@ -17,8 +17,8 @@ function Router() {
         <Home />
       </Route>
 
-      <Route path="/training-centers">
-        <TrainingCenters />
+      <Route path="/departments">
+        <Departments />
       </Route>
 
       <Route path="/about">

@@ -91,7 +91,7 @@ export default function Header() {
             >
               Programs
             </button>
-            <Link href="/training-centers" className="text-slate-700 hover:text-primary transition-colors" data-testid="nav-training">Training Centers</Link>
+            <Link href="/departments" className="text-slate-700 hover:text-primary transition-colors" data-testid="nav-training">Deparments</Link>
             <Link href="/gallery" className="text-slate-700 hover:text-primary transition-colors" data-testid="nav-gallery">Gallery</Link>
             <button 
               onClick={() => handleSectionClick('news')} 
@@ -109,7 +109,7 @@ export default function Header() {
             </button>
           </nav>
 
-          {/* Search Bar and Apply Button */}
+          {/* Search Bar and Download Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <form onSubmit={handleSearch} className="relative" data-testid="search-form">
               <div className="relative">
