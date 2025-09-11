@@ -24,13 +24,13 @@ const AboutPage: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            About <span className="text-blue-700">NAITA</span>
+            About <span className="text-blue-700">IETI</span>
           </h1>
           <p className="mt-6 text-lg text-gray-600">
-            The National Apprentice & Industrial Training Authority (NAITA) is
-            dedicated to building a skilled nation by providing high-quality
-            training programs, apprenticeships, and career development
-            opportunities across the country.
+            The Industrial Engineering Training Institute (IETI) is committed to developing skilled 
+            professionals by offering specialized industrial training programs, practical learning 
+            opportunities, and career-focused education under the guidance of the National Apprentice 
+            & Industrial Training Authority (NAITA).
           </p>
         </motion.div>
 
@@ -78,17 +78,17 @@ const AboutPage: React.FC = () => {
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-gray-900">Who We Are</h2>
           <p className="mt-6 text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            NAITA has been a cornerstone in vocational training for decades,
-            ensuring young individuals and professionals acquire industry-relevant
-            knowledge. Our training programs are aligned with international
-            standards, offering a strong foundation for both local and global
-            career opportunities.
+           The Industrial Engineering Training Institute (IETI) is a leading national 
+           institute under NAITA, dedicated to producing highly skilled professionals 
+           in the field of industrial engineering. Through industry-focused training 
+           and hands-on learning, IETI empowers individuals to build successful careers 
+           that meet both local and global workforce demands.
           </p>
           <p className="mt-4 text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            Over the years, NAITA has partnered with hundreds of industries,
-            providing apprenticeships and skill certifications to thousands of
-            students. With our nationwide presence, we bring opportunities closer
-            to every aspiring professional in Sri Lanka.
+            Over the years, IETI has trained thousands of students in industrial engineering,
+            combining practical expertise with modern technology. As a trusted institute under 
+            NAITA, we continue to shape skilled professionals who are ready to meet the challenges 
+            of today’s industries and contribute to Sri Lanka’s growth.
           </p>
         </div>
       </section>
@@ -100,9 +100,8 @@ const AboutPage: React.FC = () => {
             <CardContent>
               <h2 className="text-2xl font-semibold text-gray-900">Our Mission</h2>
               <p className="mt-4 text-gray-600">
-                To empower individuals with industry-relevant skills and create a
-                competent workforce that contributes to national growth and
-                development.
+                To equip individuals with practical industrial engineering skills and foster a 
+                competent workforce that drives innovation, productivity, and national development.
               </p>
             </CardContent>
           </Card>
@@ -111,9 +110,9 @@ const AboutPage: React.FC = () => {
             <CardContent>
               <h2 className="text-2xl font-semibold text-gray-900">Our Vision</h2>
               <p className="mt-4 text-gray-600">
-                To be the leading authority in vocational training and skill
-                development, ensuring opportunities for everyone to achieve their
-                career potential.
+                To be the premier institute in industrial engineering training, 
+                recognized for excellence in skill development and shaping professionals 
+                who excel in both local and global industries.
               </p>
             </CardContent>
           </Card>
@@ -123,10 +122,10 @@ const AboutPage: React.FC = () => {
       {/* Why Choose NAITA */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Why Choose NAITA</h2>
+          <h2 className="text-3xl font-bold text-gray-900">Why Choose IETI</h2>
           <p className="mt-4 text-gray-600">
-            We provide government-certified training, industry partnerships, and
-            nationwide training opportunities.
+            We provide government-recognized industrial training, hands-on learning 
+            with modern technology, and strong industry partnerships to ensure career-ready professionals.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 mt-12">
