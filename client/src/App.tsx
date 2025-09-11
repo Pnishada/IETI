@@ -1,6 +1,6 @@
 import { Switch, Route } from "wouter";
 import Home from "@/pages/home";
-import TrainingCenters from "@/pages/training-centers";
+import TrainingCenters from "@/pages/depatment";
 import Gallery from "@/pages/gallery";
 import Search from "@/pages/search";
 import NotFound from "@/pages/not-found";
