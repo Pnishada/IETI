@@ -10,42 +10,43 @@ export default function Departments() {
       description: "Focuses on machinery, manufacturing processes, and maintenance skills.",
       head: "Dr. Ruwan Perera",
       contact: "011-2345678",
-      image: "https://images.unsplash.com/photo-1581090700227-920d1e0644cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+      image: "src/components/assets/Mechanical_Eng_img.jpg"
     },
     {
       name: "Electrical & Electronics Engineering",
       description: "Training in electrical systems, circuits, automation, and industrial electronics.",
       head: "Eng. Malini Fernando",
       contact: "011-9876543",
-      image: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+      image: "src/components/assets/Electrical_Eng_img.jpg"
     },
     {
       name: "Civil Engineering & Construction",
       description: "Skills in building design, construction management, and infrastructure projects.",
       head: "Eng. Nimal Jayasinghe",
       contact: "011-5566778",
-      image: "https://images.unsplash.com/photo-1556909196-63e3f3d4e1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+      image: "src/components/assets/Civil_Eng_img.jpg"
     },
     {
       name: "Automotive Engineering",
       description: "Vehicle mechanics, diagnostics, and maintenance training.",
       head: "Eng. Sandun Perera",
       contact: "011-6677889",
-      image: "https://images.unsplash.com/photo-1603039088990-5a0a4c2c2d65?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+      image: "src/components/assets/Automotive_Eng_img.jpg"
     }
   ];
 
   const collaborations = [
     {
       name: "Institute of Engineering Technology (IET)",
-      logo: "https://images.unsplash.com/photo-1581092795442-31ad4273c997?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100",
+      logo: "src/components/assets/IET_Logo.png",
       description: "Provides professional engineering and technical education.",
       link: "https://iet.edu.lk/",
     },
     {
       name: "AETI – Orugodawatta",
-      logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100",
+      logo: "src/components/assets/AETI_Logo.jpg",
       description: "Advanced training and technical education at Orugodawatta.",
+      link: "https://iet.edu.lk/",
     },
   ];
 
