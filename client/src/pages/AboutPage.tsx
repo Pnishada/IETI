@@ -119,7 +119,7 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Choose NAITA */}
+      {/* Why Choose IETI */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-gray-900">Why Choose IETI</h2>
@@ -132,7 +132,7 @@ const AboutPage: React.FC = () => {
             {[
               { icon: Building2, title: "Govt. Certified Training" },
               { icon: Award, title: "Industry Partnerships" },
-              { icon: Users, title: "Nationwide Training Centers" },
+              { icon: Users, title: "Global Career Pathways" },
             ].map((item, index) => (
               <motion.div
                 key={index}
