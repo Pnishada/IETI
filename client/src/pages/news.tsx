@@ -1,143 +1,154 @@
-import { useState } from "react";
-import NewsCard from "@/components/NewsCard";
-import { NewsArticle } from "@/types/news";
-import { Button } from "@/components/ui/button";
-import { useLocation } from "wouter";
+"use client";
+
+import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const newsData: NewsArticle[] = [
+interface NewsItem {
+  id: number;
+  title: string;
+  date: string;
+  image: string;
+  link: string;
+  description: string;
+}
+
+const newsData: NewsItem[] = [
   {
     id: 1,
-    title: "IETI Computer Graphic Designer",
-    content: "Building a Skilled Nation with IETI...",
-    date: "2025-09-10",
-    category: "Technology",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    featured: true,
+    title: "IETI Computer Lab Inauguration",
+    date: "Wednesday, 10 September 2025",
+    image: "src/components/assets/ieti-news1.jpg",
+    link: "/news/1",
+    description:
+      "State-of-the-art computer lab inaugurated at IETI to enhance ICT learning and software training.",
   },
   {
     id: 2,
-    title: "Graduation Ceremony 2025",
-    content: "Celebrating the achievements of our graduates...",
-    date: "2025-08-20",
-    category: "Events",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    featured: true,
+    title: "Industrial Training Program 2025",
+    date: "Monday, 08 September 2025",
+    image: "src/components/assets/ieti-news2.jpg",
+    link: "/news/2",
+    description:
+      "IETI students gained hands-on experience in local industries through the annual training program.",
   },
   {
     id: 3,
-    title: "New Training Program Launch",
-    content: "Introducing advanced training programs...",
-    date: "2025-09-05",
-    category: "Programs",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    featured: false,
+    title: "New Welding Workshop Opened",
+    date: "Friday, 05 September 2025",
+    image: "src/components/assets/ieti-news3.jpg",
+    link: "/news/3",
+    description:
+      "A modern welding workshop is now available for IETI trainees to learn industry-standard techniques.",
+  },
+  {
+    id: 4,
+    title: "IETI Robotics Competition 2025",
+    date: "Monday, 01 September 2025",
+    image: "src/components/assets/ieti-news4.jpg",
+    link: "/news/4",
+    description:
+      "Students showcased innovative robotics solutions at IETI’s annual Robotics Competition.",
   },
 ];
 
-const categories = ["All", "Technology", "Events", "Programs"];
-
 const NewsPage: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [visibleCount, setVisibleCount] = useState(4);
-  const [, setLocation] = useLocation();
-
-  const filteredNews = newsData.filter((news) => {
-    const matchesSearch = news.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || news.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
-
-  const featuredNews = filteredNews.filter((n) => n.featured);
-  const regularNews = filteredNews.filter((n) => !n.featured);
-
-  const loadMore = () => setVisibleCount(visibleCount + 4);
+  const featured = newsData[0];
+  const others = newsData.slice(1);
 
   return (
     <>
-      {/* Full width header */}
       <Header />
 
-      {/* Page content constrained to max width */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-8 text-center text-slate-900">
-          More News & Announcements
+      {/* Hero Banner */}
+      <section className="relative bg-white text-black py-16 px-6 text-center">
+        <h1 className="text-3xl md:text-5xl font-bold">
+          Industrial Engineering Training Institute
         </h1>
+        <p className="mt-3 text-xl text-gray-600">Orugodawatta</p>
+        <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-gray-500">
+          Stay updated with the latest news, events, and achievements at IETI.
+        </p>
+      </section>
 
-        {/* Search & Categories */}
-        <div className="flex flex-col md:flex-row justify-center items-center mb-8 gap-4">
-          <div className="relative w-full md:w-1/2">
-            <input
-              type="text"
-              placeholder="Search news..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="border border-gray-300 rounded-full px-12 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-          </div>
-          <div className="flex flex-wrap gap-3">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === cat
-                    ? "bg-primary text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-
+      <div className="max-w-7xl mx-auto p-6 space-y-12">
         {/* Featured News */}
-        {featuredNews.length > 0 && (
-          <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {featuredNews.map((news) => (
-              <div
-                key={news.id}
-                onClick={() => setLocation(`/news/${news.id}`)}
-                className="relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow cursor-pointer h-64"
+        <section className="grid md:grid-cols-2 gap-8">
+          <div className="relative rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src={featured.image}
+              alt={featured.title}
+              className="w-full h-72 object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 text-white">
+              <h2 className="text-2xl font-bold mb-2">{featured.title}</h2>
+              <p className="text-sm mb-3">{featured.date}</p>
+              <a
+                href={featured.link}
+                className="inline-block bg-green-600 px-5 py-2 rounded-full hover:bg-green-800 transition"
               >
-                {news.image && (
-                  <img
-                    src={news.image}
-                    alt={news.title}
-                    className="w-full h-full object-cover"
-                  />
-                )}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                  <h2 className="text-white text-2xl font-bold">{news.title}</h2>
-                  <p className="text-gray-200 mt-2 line-clamp-2">{news.content}</p>
-                  <div className="mt-2 text-sm text-gray-300">{news.date}</div>
+                Read More
+              </a>
+            </div>
+          </div>
+
+          <div className="grid gap-6">
+            {others.map((item) => (
+              <div
+                key={item.id}
+                className="flex gap-4 items-center bg-white rounded-xl shadow hover:shadow-md transition overflow-hidden"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-32 h-24 object-cover"
+                />
+                <div className="p-3">
+                  <h3 className="text-lg font-semibold hover:text-green-600">
+                    <a href={item.link}>{item.title}</a>
+                  </h3>
+                  <p className="text-sm text-gray-500">{item.date}</p>
                 </div>
               </div>
             ))}
           </div>
-        )}
+        </section>
 
-        {/* Regular News */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {regularNews.slice(0, visibleCount).map((news) => (
-            <NewsCard key={news.id} news={news} />
-          ))}
-        </div>
-
-        {/* Load More */}
-        {visibleCount < regularNews.length && (
-          <div className="text-center mt-12">
-            <Button onClick={loadMore} className="bg-primary text-white px-8 py-3 rounded-lg">
-              Load More
-            </Button>
+        {/* All News Grid */}
+        <section>
+          <h2 className="text-2xl font-bold mb-6 text-black">Latest News</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {newsData.map((item) => (
+              <div
+                key={item.id}
+                className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold mb-2 hover:text-green-600">
+                    <a href={item.link}>{item.title}</a>
+                  </h3>
+                  <p className="text-sm text-gray-500 mb-2">{item.date}</p>
+                  <p className="text-sm text-gray-600 line-clamp-2">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        )}
+          {/* Load More Button */}
+          <div className="text-center mt-8">
+            <button className="bg-green-600 hover:bg-green-800 text-white px-6 py-3 rounded-full shadow transition">
+              Load More
+            </button>
+          </div>
+        </section>
       </div>
 
-      {/* Full width footer */}
       <Footer />
     </>
   );
