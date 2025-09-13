@@ -2,85 +2,81 @@
 
 import { Button } from "@/components/ui/button";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
-import studentl from "@/components/assets/studentl.jpg"; // Local image import
+import "swiper/css/effect-fade";
+
+import studentl from "@/components/assets/studentl.jpg";
 import uni1 from "@/components/assets/uni1.jpg";
 import uni2 from "@/components/assets/uni2.jpg";
 
-export default function HeroSection() {
-  const images: { src: string; alt: string }[] = [
+// TypeScript interface for slides
+interface Slide {
+  src: string;
+  heading: string;
+  subheading: string;
+}
+
+export default function HeroSection(): JSX.Element {
+  const slides: Slide[] = [
     {
-      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Professional team collaborating in modern office",
+      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      heading: "Building a Skilled Nation",
+      subheading: "Industrial Engineering Training Institute (IETI)",
     },
     {
       src: studentl,
-      alt: "Students learning programming",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Hands-on technical training session",
+      heading: "Empowering Students",
+      subheading: "Hands-on learning for a brighter future",
     },
     {
       src: uni1,
-      alt: "university students in a lecture hall",
+      heading: "Innovative Learning",
+      subheading: "Modern classrooms, practical training",
     },
     {
       src: uni2,
-      alt: "academic discussion",
+      heading: "Achieve Excellence",
+      subheading: "Preparing leaders for tomorrow",
     },
   ];
 
   return (
-    <section className="bg-gray-50 py-16 lg:py-24" id="home">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Building a Skilled Nation with IETI
-              </h1>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Industrial Engineering Training Institute (IETI)
-              </p>
+    <section className="w-full h-screen relative">
+      <Swiper
+        modules={[Autoplay, Pagination, EffectFade]}
+        effect="fade"
+        loop={true}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        className="w-full h-full"
+      >
+        {slides.map((slide, i) => (
+          <SwiperSlide key={i}>
+            <div
+              className="w-full h-screen bg-center bg-cover relative flex items-center justify-center"
+              style={{ backgroundImage: `url(${slide.src})` }}
+            >
+              {/* Dark overlay for text visibility */}
+              <div className="absolute inset-0 bg-black/40"></div>
+
+              {/* Text Content */}
+              <div className="relative text-center text-white px-6 md:px-12 max-w-3xl space-y-6">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold">
+                  {slide.heading}
+                </h1>
+                <p className="text-lg sm:text-xl md:text-2xl">{slide.subheading}</p>
+                <div className="flex justify-center gap-4 mt-6">
+                  <Button className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-3 rounded-lg font-semibold">
+                    Apply Online
+                  </Button>
+                </div>
+              </div>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors">
-                Explore Programs
-              </Button>
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-lg font-medium transition-colors">
-                Apply Online
-              </Button>
-            </div>
-          </div>
-
-          {/* Right Content - Slider */}
-          <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[16/9] sm:aspect-[4/3]">
-  <Swiper
-    modules={[Pagination, Autoplay]}
-    pagination={{ clickable: true }}
-    autoplay={{ delay: 3000 }}
-    loop={true}
-    className="w-full h-full"
-  >
-    {images.map((img, i) => (
-      <SwiperSlide key={i}>
-        <img
-          src={img.src}
-          alt={img.alt}
-          className="w-full h-full object-cover rounded-2xl"
-        />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
-
-        </div>
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </section>
   );
 }
