@@ -1,6 +1,10 @@
 import { Switch, Route } from "wouter";
 import Home from "@/pages/home";
-import Departments from "./pages/depatment";
+import Departments01 from "./pages/departments/depatment01";
+import Departments02 from "./pages/departments/depatment02";
+import Departments03 from "./pages/departments/depatment03";
+import Departments04 from "./pages/departments/depatment04";
+import Departments05 from "./pages/departments/depatment05";
 import Gallery from "@/pages/gallery";
 import Search from "@/pages/search";
 import NotFound from "@/pages/not-found";
@@ -14,7 +18,7 @@ import Downloadpage from "./pages/download";
 import FullTimeCoursesPage from "./pages/full-time-courses";
 import PartTimeCoursesPage from "./pages/part-time-courses";
 import OtherCoursesPage from "./pages/others-courses";
-
+import ApplyOnline from "./pages/apply-online";
 
 function Router() {
   return (
@@ -23,8 +27,20 @@ function Router() {
         <Home />
       </Route>
 
-      <Route path="/departments">
-        <Departments />
+      <Route path="/departments/01">
+        <Departments01 />
+      </Route>
+      <Route path="/departments/02">
+        <Departments02 />
+      </Route>
+      <Route path="/departments/03">
+        <Departments03 />
+      </Route>
+      <Route path="/departments/04">
+        <Departments04 />
+      </Route>
+      <Route path="/departments/05">
+        <Departments05 />
       </Route>
 
       <Route path="/about">
@@ -69,6 +85,10 @@ function Router() {
 
       <Route path="/courses/others">
         <OtherCoursesPage />
+      </Route>
+
+      <Route path="/apply-online">
+        <ApplyOnline />
       </Route>
 
       {/* Catch-all 404 route */}

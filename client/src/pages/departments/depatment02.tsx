@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -48,36 +50,49 @@ export default function Departments() {
       description: "Advanced training and technical education at Orugodawatta.",
       link: "https://iet.edu.lk/",
     },
+    {
+      name: "NTS – Colombo",
+      logo: "src/components/assets/NTS_Logo.jpg",
+      description: "Nurses Training School Colombo.",
+      link: "https://iet.edu.lk/",
+    },
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
       <Header />
+
       <main className="py-16 lg:py-24">
-        <div className="container mx-auto p-6">
-          <h1 className="text-3xl font-bold mb-6 text-center text-slate-900">
-            IETI Departments
+        <div className="max-w-7xl mx-auto px-6">
+
+          {/* Page Title */}
+          <h1 className="text-4xl font-bold mb-4 text-center text-slate-900">
+            IETI Departments 02
           </h1>
-          <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-center text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
             IETI offers specialized departments dedicated to practical and industry-relevant training, developing skilled professionals for modern industries.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {departments.map((dept, index) => (
-              <Card key={index} className="shadow-lg rounded-2xl border border-gray-200 hover:shadow-xl transition-shadow overflow-hidden">
+          {/* Departments Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {departments.map((dept, idx) => (
+              <Card key={idx} className="shadow-lg rounded-2xl border border-gray-200 hover:shadow-xl transition-shadow overflow-hidden">
                 <div className="relative h-48 overflow-hidden">
                   <img 
                     src={dept.image} 
-                    alt={`${dept.name}`} 
+                    alt={dept.name} 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
-                <CardContent className="p-6">
-                  <h2 className="text-xl font-semibold mb-2 text-slate-900">{dept.name}</h2>
-                  <p className="text-slate-600 mb-2 leading-relaxed">{dept.description}</p>
-                  <p className="text-sm text-slate-500 mb-2"><span className="font-medium text-slate-700">Head:</span> {dept.head}</p>
-                  <p className="text-sm text-slate-500 mb-4"><span className="font-medium text-slate-700">Contact:</span> {dept.contact}</p>
+                <CardContent className="p-6 flex flex-col justify-between h-full">
+                  <div>
+                    <h2 className="text-xl font-semibold mb-2 text-slate-900">{dept.name}</h2>
+                    <p className="text-slate-600 mb-2 leading-relaxed">{dept.description}</p>
+                    <p className="text-sm text-slate-500 mb-1"><span className="font-medium text-slate-700">Head:</span> {dept.head}</p>
+                    <p className="text-sm text-slate-500 mb-4"><span className="font-medium text-slate-700">Contact:</span> {dept.contact}</p>
+                  </div>
                   <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                     View More
                   </Button>
@@ -87,19 +102,19 @@ export default function Departments() {
           </div>
 
           {/* Collaborations Section */}
-          <div className="mt-20">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-center text-slate-900">
+          <section className="mt-20">
+            <h2 className="text-4xl font-bold mb-4 text-center text-slate-900">
               Industry Collaborations
             </h2>
-            <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-center text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
               IETI partners with leading educational institutions and organizations to provide comprehensive training and career development opportunities.
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {collaborations.map((partner, index) => (
-                <Card key={index} className="shadow-lg rounded-2xl border border-gray-200 hover:shadow-xl transition-shadow">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {collaborations.map((partner, idx) => (
+                <Card key={idx} className="shadow-lg rounded-2xl border border-gray-200 hover:shadow-xl transition-shadow">
                   <CardContent className="p-6 flex flex-col items-center text-center">
-                    <div className="w-20 h-20 mb-4 flex items-center justify-center bg-gray-50 rounded-xl overflow-hidden">
-                      <img src={partner.logo} alt={`${partner.name} logo`} className="max-w-full max-h-full object-contain"/>
+                    <div className="w-24 h-24 mb-4 flex items-center justify-center bg-gray-50 rounded-xl overflow-hidden">
+                      <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain"/>
                     </div>
                     <h3 className="text-lg font-semibold mb-2 text-slate-900">{partner.name}</h3>
                     <p className="text-slate-600 mb-4 leading-relaxed">{partner.description}</p>
@@ -112,9 +127,12 @@ export default function Departments() {
                 </Card>
               ))}
             </div>
-          </div>
+          </section>
+
         </div>
       </main>
+
+      {/* Footer */}
       <Footer />
     </div>
   );

@@ -1,34 +1,48 @@
+"use client";
+
 import { NewsArticle } from "@/types/news";
-import { useLocation } from "wouter";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 interface Props {
   news: NewsArticle;
 }
 
-const NewsCard: React.FC<Props> = ({ news }) => {
-  const [, setLocation] = useLocation();
-
+const NewsCardPage: React.FC<Props> = ({ news }) => {
   return (
-    <div
-      onClick={() => setLocation(`/news/${news.id}`)}
-      className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col h-full bg-white"
-    >
-      {news.image && (
-        <img
-          src={news.image}
-          alt={news.title}
-          className="w-full h-40 object-cover flex-shrink-0"
-        />
-      )}
-      <div className="p-4 flex-1 flex flex-col justify-between">
-        <div>
-          <h3 className="text-lg font-bold mb-2 text-slate-900">{news.title}</h3>
-          <p className="text-gray-600 text-sm line-clamp-3">{news.content}</p>
+    <>
+      {/* Header */}
+      <Header />
+
+      {/* Main Content */}
+      <main className="bg-gray-50 min-h-screen py-20 lg:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          {/* Hero Image */}
+          {news.image && (
+            <div className="overflow-hidden rounded-3xl shadow-lg mb-8">
+              <img
+                src={news.image}
+                alt={news.title}
+                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          )}
+
+          {/* News Details */}
+          <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-12">
+            <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">
+              {news.title}
+            </h1>
+            <p className="text-sm text-gray-500 mb-6">{news.date}</p>
+            <p className="text-gray-700 text-lg leading-relaxed">{news.content}</p>
+          </div>
         </div>
-        <div className="mt-4 text-xs text-gray-500">{news.date}</div>
-      </div>
-    </div>
+      </main>
+
+      {/* Footer */}
+      <Footer />
+    </>
   );
 };
 
-export default NewsCard;
+export default NewsCardPage;

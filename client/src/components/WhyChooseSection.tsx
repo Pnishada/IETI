@@ -20,10 +20,13 @@ export default function WhyChooseSection() {
   ];
 
   return (
-    <section className="py-16 lg:py-24">
+    <section className="py-20 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4" data-testid="text-why-choose-title">
+          <h2
+            className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4"
+            data-testid="text-why-choose-title"
+          >
             Why Choose IETI
           </h2>
         </div>
@@ -32,11 +35,18 @@ export default function WhyChooseSection() {
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
-              <div key={index} className="text-center" data-testid={benefit.testId}>
-                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div
+                key={index}
+                className="text-center p-6 rounded-2xl bg-white shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                data-testid={benefit.testId}
+              >
+                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300 hover:bg-accent/20">
                   <IconComponent className="text-accent w-8 h-8" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-3" data-testid={`text-${benefit.testId}-title`}>
+                <h3
+                  className="font-bold text-slate-900 mb-3"
+                  data-testid={`text-${benefit.testId}-title`}
+                >
                   {benefit.title}
                 </h3>
               </div>
