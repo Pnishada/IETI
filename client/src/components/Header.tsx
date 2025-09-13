@@ -75,6 +75,7 @@ export default function Header() {
             <button onClick={() => handleSectionClick('about')} className="text-slate-700 hover:text-primary transition-colors">About</button>
             <button onClick={() => handleSectionClick('programs')} className="text-slate-700 hover:text-primary transition-colors">Programs</button>
             <Link href="/departments" className="text-slate-700 hover:text-primary transition-colors">Departments</Link>
+            <Link href="/training-centers" className="text-slate-700 hover:text-primary transition-colors">Courses</Link>
             <Link href="/gallery" className="text-slate-700 hover:text-primary transition-colors">Gallery</Link>
             <button onClick={() => handleSectionClick('news')} className="text-slate-700 hover:text-primary transition-colors">News</button>
             <button onClick={() => handleSectionClick('contact')} className="text-slate-700 hover:text-primary transition-colors">Contact</button>
