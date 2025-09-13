@@ -23,9 +23,9 @@ export default function Footer() {
           <div>
             <h4 className="text-base font-semibold mb-3">Quick Links</h4>
             <ul className="space-y-1 text-sm">
-              <li><a href="#about" className="hover:text-white">About Us</a></li>
-              <li><a href="#programs" className="hover:text-white">Programs</a></li>
-              <li><a href="#apply" className="hover:text-white">Apply Online</a></li>
+              <li><a href="/about" className="hover:text-white">About Us</a></li>
+              <li><a href="/programs" className="hover:text-white">Programs</a></li>
+              <li><a href="/apply-online" className="hover:text-white">Apply Online</a></li>
             </ul>
           </div>
 
@@ -33,10 +33,10 @@ export default function Footer() {
           <div>
             <h4 className="text-base font-semibold mb-3">Services</h4>
             <ul className="space-y-1 text-sm">
-              <li><a href="#apprenticeships" className="hover:text-white">Apprenticeships</a></li>
-              <li><a href="#nvq" className="hover:text-white">NVQ Programs</a></li>
-              <li><a href="#career" className="hover:text-white">Career Development</a></li>
-              <li><a href="#partnerships" className="hover:text-white">Industry Partnerships</a></li>
+              <li><a href="/apprenticeships" className="hover:text-white">Apprenticeships</a></li>
+              <li><a href="/nvq" className="hover:text-white">NVQ Programs</a></li>
+              <li><a href="/career" className="hover:text-white">Career Development</a></li>
+              <li><a href="/partnerships" className="hover:text-white">Industry Partnerships</a></li>
             </ul>
           </div>
 
@@ -44,9 +44,9 @@ export default function Footer() {
           <div>
             <h4 className="text-base font-semibold mb-3">Contact</h4>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center"><Phone className="w-4 h-4 mr-2 text-primary" /> +94 11 123 4567</li>
-              <li className="flex items-center"><Mail className="w-4 h-4 mr-2 text-primary" /> info@naita.gov.lk</li>
-              <li className="flex items-center"><MapPin className="w-4 h-4 mr-2 text-primary" /> Colombo, Sri Lanka</li>
+              <li className="flex items-center"><Phone className="w-4 h-4 mr-2 text-primary" /> 011 2641092 / 011 2647393 / 011 2649329 / 011 2643847</li>
+              <li className="flex items-center"><Mail className="w-4 h-4 mr-2 text-primary" /> ieti.adm581@gmail.com</li>
+              <li className="flex items-center"><MapPin className="w-4 h-4 mr-2 text-primary" /> Industrial Engineering Training Institute, 581 Galle Rd, Moratuwa</li>
             </ul>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export default function Departments() {
+export default function Departments05() {
   const departments = [
     {
       name: "Mechanical Engineering",
@@ -93,9 +93,6 @@ export default function Departments() {
                     <p className="text-sm text-slate-500 mb-1"><span className="font-medium text-slate-700">Head:</span> {dept.head}</p>
                     <p className="text-sm text-slate-500 mb-4"><span className="font-medium text-slate-700">Contact:</span> {dept.contact}</p>
                   </div>
-                  <Button variant="default" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    View More
-                  </Button>
                 </CardContent>
               </Card>
             ))}
