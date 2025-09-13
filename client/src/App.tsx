@@ -11,6 +11,10 @@ import NewsPage from "./pages/news";
 import NewsDetails from "./pages/news/[id]";
 import { Download } from "lucide-react";
 import Downloadpage from "./pages/download";
+import FullTimeCoursesPage from "./pages/full-time-courses";
+import PartTimeCoursesPage from "./pages/part-time-courses";
+import OtherCoursesPage from "./pages/others-courses";
+
 
 function Router() {
   return (
@@ -53,6 +57,18 @@ function Router() {
 
       <Route path="/download">
         <Downloadpage />
+      </Route>
+
+      <Route path="/courses/full-time">
+        <FullTimeCoursesPage />
+      </Route>
+
+      <Route path="/courses/part-time">
+        <PartTimeCoursesPage />
+      </Route>
+
+      <Route path="/courses/others">
+        <OtherCoursesPage />
       </Route>
 
       {/* Catch-all 404 route */}

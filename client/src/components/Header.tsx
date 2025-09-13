@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GraduationCap, Menu, X, Search } from "lucide-react";
+import { GraduationCap, Menu, X, Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "wouter";
@@ -8,9 +8,14 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [location, setLocation] = useLocation();
+  const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleCoursesDropdown = () => {
+    setIsCoursesDropdownOpen(!isCoursesDropdownOpen);
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -71,32 +76,46 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6" data-testid="desktop-nav">
-            <Link href="/" className="text-slate-700 hover:text-primary transition-colors" data-testid="nav-home">Home</Link>
+            <Link href="/" className="text-slate-700 hover:text-primary transition-colors">Home</Link>
             <button onClick={() => handleSectionClick('about')} className="text-slate-700 hover:text-primary transition-colors">About</button>
             <button onClick={() => handleSectionClick('programs')} className="text-slate-700 hover:text-primary transition-colors">Programs</button>
             <Link href="/departments" className="text-slate-700 hover:text-primary transition-colors">Departments</Link>
-            <Link href="/training-centers" className="text-slate-700 hover:text-primary transition-colors">Courses</Link>
+
+            {/* Courses Dropdown */}
+            <div className="relative">
+              <button
+                onClick={toggleCoursesDropdown}
+                className="flex items-center text-slate-700 hover:text-primary transition-colors"
+              >
+                Courses <ChevronDown className="w-4 h-4 ml-1" />
+              </button>
+              {isCoursesDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-slate-200 shadow-lg rounded-lg z-50">
+                  <Link href="/courses/full-time" className="block px-4 py-2 hover:bg-gray-100">Full-time Courses</Link>
+                  <Link href="/courses/part-time" className="block px-4 py-2 hover:bg-gray-100">Part-time Courses</Link>
+                  <Link href="/courses/others" className="block px-4 py-2 hover:bg-gray-100">Others</Link>
+                </div>
+              )}
+            </div>
+
             <Link href="/gallery" className="text-slate-700 hover:text-primary transition-colors">Gallery</Link>
             <button onClick={() => handleSectionClick('news')} className="text-slate-700 hover:text-primary transition-colors">News</button>
             <button onClick={() => handleSectionClick('contact')} className="text-slate-700 hover:text-primary transition-colors">Contact</button>
           </nav>
 
-          {/* Search Bar and Download Button */}
+          {/* Search & Download */}
           <div className="hidden lg:flex items-center space-x-4">
             <form onSubmit={handleSearch} className="relative">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
-                <Input
-                  type="text"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 py-2 w-64 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-              </div>
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
+              <Input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 pr-4 py-2 w-64 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
             </form>
 
-            {/* Download Button */}
             <Link href="/download">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-colors">
                 Download
@@ -117,28 +136,44 @@ export default function Header() {
           <div className="px-4 pt-2 pb-3 space-y-1 bg-white border-t border-border">
             <div className="px-3 py-2">
               <form onSubmit={handleSearch} className="relative">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
-                  <Input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 pr-4 py-2 w-full border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  />
-                </div>
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
+                <Input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-4 py-2 w-full border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
               </form>
             </div>
 
             <Link href="/" className="block px-3 py-2 text-slate-700">Home</Link>
             <button onClick={() => handleSectionClick('about')} className="block px-3 py-2 text-slate-700 w-full text-left">About</button>
             <button onClick={() => handleSectionClick('programs')} className="block px-3 py-2 text-slate-700 w-full text-left">Programs</button>
+            <Link href="/departments" className="block px-3 py-2 text-slate-700">Departments</Link>
+
+            {/* Mobile Courses Dropdown */}
+            <div className="block">
+              <button
+                onClick={toggleCoursesDropdown}
+                className="w-full text-left px-3 py-2 text-slate-700 flex justify-between items-center"
+              >
+                Courses <ChevronDown className="w-4 h-4 ml-1" />
+              </button>
+              {isCoursesDropdownOpen && (
+                <div className="pl-6">
+                  <Link href="/courses/full-time" className="block px-3 py-2 hover:bg-gray-100">Full-time Courses</Link>
+                  <Link href="/courses/part-time" className="block px-3 py-2 hover:bg-gray-100">Part-time Courses</Link>
+                  <Link href="/courses/others" className="block px-3 py-2 hover:bg-gray-100">Others</Link>
+                </div>
+              )}
+            </div>
+
             <Link href="/training-centers" className="block px-3 py-2 text-slate-700">Training Centers</Link>
             <Link href="/gallery" className="block px-3 py-2 text-slate-700">Gallery</Link>
             <button onClick={() => handleSectionClick('news')} className="block px-3 py-2 text-slate-700 w-full text-left">News</button>
             <button onClick={() => handleSectionClick('contact')} className="block px-3 py-2 text-slate-700 w-full text-left">Contact</button>
 
-            {/* Mobile Download Button */}
             <Link href="/download">
               <Button className="w-full text-left bg-primary text-primary-foreground px-3 py-2 rounded-lg mt-2">
                 Download
