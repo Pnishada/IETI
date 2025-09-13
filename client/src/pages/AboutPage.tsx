@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Header from "../components/Header"; // Header component
 import Footer from "../components/Footer"; // Footer component
@@ -5,10 +7,11 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "../components/ui/card";
 import { Building2, Award, Users } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 
 const AboutPage: React.FC = () => {
   return (
@@ -34,64 +37,78 @@ const AboutPage: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Image Slider */}
+        {/* Hero Video */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
+          className="rounded-2xl overflow-hidden shadow-lg relative"
         >
-          <Swiper
-            modules={[Pagination, Navigation, Autoplay]}
-            pagination={{ clickable: true }}
-            navigation
-            autoplay={{ delay: 4000 }}
+          <video
+            src="src/components/assets/about_vedio.mp4"
+            autoPlay
             loop
-            className="rounded-2xl shadow-lg"
-          >
-            <SwiperSlide>
-              <img
-                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1000&q=80"
-                alt="Training"
-                className="rounded-2xl"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80"
-                alt="Students"
-                className="rounded-2xl"
-              />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img
-                src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1000&q=80"
-                alt="Industry"
-                className="rounded-2xl"
-              />
-            </SwiperSlide>
-          </Swiper>
+            muted
+            controls
+            controlsList="nodownload"
+            preload="metadata"
+            className="w-full h-auto rounded-2xl"
+          />
+          {/* Transparent overlay to prevent right-click */}
+          <div className="absolute inset-0" style={{ pointerEvents: "none" }}></div>
         </motion.div>
       </section>
 
       {/* Who We Are Section */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Who We Are</h2>
-          <p className="mt-6 text-gray-600 leading-relaxed max-w-3xl mx-auto">
-           The Industrial Engineering Training Institute (IETI) is a leading national 
-           institute under NAITA, dedicated to producing highly skilled professionals 
-           in the field of industrial engineering. Through industry-focused training 
-           and hands-on learning, IETI empowers individuals to build successful careers 
-           that meet both local and global workforce demands.
-          </p>
-          <p className="mt-4 text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            Over the years, IETI has trained thousands of students in industrial engineering,
-            combining practical expertise with modern technology. As a trusted institute under 
-            NAITA, we continue to shape skilled professionals who are ready to meet the challenges 
-            of today’s industries and contribute to Sri Lanka’s growth.
-          </p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Who We Are</h2>
+
+          <Swiper
+            modules={[Pagination, Navigation, Autoplay]}
+            pagination={{ clickable: true }}
+            navigation
+            autoplay={{ delay: 4000 }}
+            loop
+            spaceBetween={30}
+            className="rounded-2xl"
+          >
+            {[
+              {
+                title: "Leading National Institute",
+                text: "IETI is a leading national institute under NAITA, producing highly skilled professionals in industrial engineering.",
+                image: "src/components/assets/IETI_office_building.webp", // place this image in public/images
+              },
+              {
+                title: "Hands-On Learning",
+                text: "Through industry-focused training and practical learning, we empower individuals to build successful careers.",
+                image: "src/components/assets/Electrical_Eng_img.jpg",
+              },
+              {
+                title: "Thousands of Graduates",
+                text: "Over the years, IETI has trained thousands of students combining practical expertise with modern technology.",
+                image: "src/components/assets/Automotive_Eng_img.jpg",
+              },
+            ].map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-gray-50 rounded-2xl shadow-md overflow-hidden max-w-3xl mx-auto">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="p-6 text-center">
+                    <h3 className="text-2xl font-semibold text-gray-900">{item.title}</h3>
+                    <p className="mt-4 text-gray-600">{item.text}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
+
+
 
       {/* Mission & Vision */}
       <section className="bg-gray-50 py-16">
