@@ -16,49 +16,44 @@ export default function Header() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // Navigate to search results page with query parameter
       setLocation(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchQuery(""); // Clear search after submission
-      setIsMobileMenuOpen(false); // Close mobile menu if open
+      setSearchQuery("");
+      setIsMobileMenuOpen(false);
     }
   };
 
   const handleSectionClick = (sectionId: string) => {
-    setIsMobileMenuOpen(false); // Close mobile menu if open
-    
-    // If we're already on the homepage, just scroll to the section
-    if (location === '/') {
+    setIsMobileMenuOpen(false);
+
+    if (location === "/") {
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          // Scroll with offset to account for fixed header
           const headerOffset = 80;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          
+
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
       }, 100);
     } else {
-      // Navigate to homepage first, then scroll to section
-      setLocation('/');
+      setLocation("/");
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          // Scroll with offset to account for fixed header
           const headerOffset = 80;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          
+
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
-      }, 800); // Give more time for page to fully load
+      }, 800);
     }
   };
 
@@ -77,41 +72,17 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6" data-testid="desktop-nav">
             <Link href="/" className="text-slate-700 hover:text-primary transition-colors" data-testid="nav-home">Home</Link>
-            <button 
-              onClick={() => handleSectionClick('about')} 
-              className="text-slate-700 hover:text-primary transition-colors" 
-              data-testid="nav-about"
-            >
-              About
-            </button>
-            <button 
-              onClick={() => handleSectionClick('programs')} 
-              className="text-slate-700 hover:text-primary transition-colors" 
-              data-testid="nav-programs"
-            >
-              Programs
-            </button>
-            <Link href="/departments" className="text-slate-700 hover:text-primary transition-colors" data-testid="nav-training">Deparments</Link>
-            <Link href="/gallery" className="text-slate-700 hover:text-primary transition-colors" data-testid="nav-gallery">Gallery</Link>
-            <button 
-              onClick={() => handleSectionClick('news')} 
-              className="text-slate-700 hover:text-primary transition-colors" 
-              data-testid="nav-news"
-            >
-              News
-            </button>
-            <button 
-              onClick={() => handleSectionClick('contact')} 
-              className="text-slate-700 hover:text-primary transition-colors" 
-              data-testid="nav-contact"
-            >
-              Contact
-            </button>
+            <button onClick={() => handleSectionClick('about')} className="text-slate-700 hover:text-primary transition-colors">About</button>
+            <button onClick={() => handleSectionClick('programs')} className="text-slate-700 hover:text-primary transition-colors">Programs</button>
+            <Link href="/departments" className="text-slate-700 hover:text-primary transition-colors">Departments</Link>
+            <Link href="/gallery" className="text-slate-700 hover:text-primary transition-colors">Gallery</Link>
+            <button onClick={() => handleSectionClick('news')} className="text-slate-700 hover:text-primary transition-colors">News</button>
+            <button onClick={() => handleSectionClick('contact')} className="text-slate-700 hover:text-primary transition-colors">Contact</button>
           </nav>
 
           {/* Search Bar and Download Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <form onSubmit={handleSearch} className="relative" data-testid="search-form">
+            <form onSubmit={handleSearch} className="relative">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <Input
@@ -120,40 +91,31 @@ export default function Header() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10 pr-4 py-2 w-64 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  data-testid="input-search"
                 />
               </div>
             </form>
-            <Button 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-colors"
-              data-testid="button-apply-desktop"
-            >
-              Download
-            </Button>
+
+            {/* Download Button */}
+            <Link href="/download">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-lg font-medium transition-colors">
+                Download
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="lg:hidden p-2" 
-            onClick={toggleMobileMenu}
-            data-testid="button-mobile-menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-slate-700" />
-            ) : (
-              <Menu className="w-6 h-6 text-slate-700" />
-            )}
+          <button className="lg:hidden p-2" onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? <X className="w-6 h-6 text-slate-700" /> : <Menu className="w-6 h-6 text-slate-700" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden" data-testid="mobile-menu">
+        <div className="lg:hidden">
           <div className="px-4 pt-2 pb-3 space-y-1 bg-white border-t border-border">
-            {/* Mobile Search Bar */}
             <div className="px-3 py-2">
-              <form onSubmit={handleSearch} className="relative" data-testid="mobile-search-form">
+              <form onSubmit={handleSearch} className="relative">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
                   <Input
@@ -162,48 +124,25 @@ export default function Header() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10 pr-4 py-2 w-full border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                    data-testid="input-mobile-search"
                   />
                 </div>
               </form>
             </div>
-            <Link href="/" className="block px-3 py-2 text-slate-700" data-testid="mobile-nav-home">Home</Link>
-            <button 
-              onClick={() => handleSectionClick('about')} 
-              className="block px-3 py-2 text-slate-700 text-left w-full" 
-              data-testid="mobile-nav-about"
-            >
-              About
-            </button>
-            <button 
-              onClick={() => handleSectionClick('programs')} 
-              className="block px-3 py-2 text-slate-700 text-left w-full" 
-              data-testid="mobile-nav-programs"
-            >
-              Programs
-            </button>
-            <Link href="/training-centers" className="block px-3 py-2 text-slate-700" data-testid="mobile-nav-training">Training Centers</Link>
-            <Link href="/gallery" className="block px-3 py-2 text-slate-700" data-testid="mobile-nav-gallery">Gallery</Link>
-            <button 
-              onClick={() => handleSectionClick('news')} 
-              className="block px-3 py-2 text-slate-700 text-left w-full" 
-              data-testid="mobile-nav-news"
-            >
-              News
-            </button>
-            <button 
-              onClick={() => handleSectionClick('contact')} 
-              className="block px-3 py-2 text-slate-700 text-left w-full" 
-              data-testid="mobile-nav-contact"
-            >
-              Contact
-            </button>
-            <Button 
-              className="w-full text-left bg-primary text-primary-foreground px-3 py-2 rounded-lg mt-2"
-              data-testid="button-apply-mobile"
-            >
-              Download
-            </Button>
+
+            <Link href="/" className="block px-3 py-2 text-slate-700">Home</Link>
+            <button onClick={() => handleSectionClick('about')} className="block px-3 py-2 text-slate-700 w-full text-left">About</button>
+            <button onClick={() => handleSectionClick('programs')} className="block px-3 py-2 text-slate-700 w-full text-left">Programs</button>
+            <Link href="/training-centers" className="block px-3 py-2 text-slate-700">Training Centers</Link>
+            <Link href="/gallery" className="block px-3 py-2 text-slate-700">Gallery</Link>
+            <button onClick={() => handleSectionClick('news')} className="block px-3 py-2 text-slate-700 w-full text-left">News</button>
+            <button onClick={() => handleSectionClick('contact')} className="block px-3 py-2 text-slate-700 w-full text-left">Contact</button>
+
+            {/* Mobile Download Button */}
+            <Link href="/download">
+              <Button className="w-full text-left bg-primary text-primary-foreground px-3 py-2 rounded-lg mt-2">
+                Download
+              </Button>
+            </Link>
           </div>
         </div>
       )}

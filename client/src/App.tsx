@@ -9,6 +9,8 @@ import ProgramsSection from "./components/ProgramsSection";
 import ProgramDetails from "./pages/programs/[id]";
 import NewsPage from "./pages/news";
 import NewsDetails from "./pages/news/[id]";
+import { Download } from "lucide-react";
+import Downloadpage from "./pages/download";
 
 function Router() {
   return (
@@ -47,6 +49,10 @@ function Router() {
 
       <Route path="/news/:id">
         <NewsDetails />
+      </Route>
+
+      <Route path="/download">
+        <Downloadpage />
       </Route>
 
       {/* Catch-all 404 route */}
