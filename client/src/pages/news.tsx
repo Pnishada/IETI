@@ -65,7 +65,7 @@ const NewsPage: React.FC = () => {
         <h1 className="text-3xl md:text-5xl font-bold">
           Industrial Engineering Training Institute
         </h1>
-        <p className="mt-3 text-xl text-gray-600">Orugodawatta</p>
+        <p className="mt-3 text-xl text-gray-600">Moratuwa</p>
         <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto text-gray-500">
           Stay updated with the latest news, events, and achievements at IETI.
         </p>
