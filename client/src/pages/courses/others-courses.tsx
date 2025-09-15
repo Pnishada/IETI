@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Modal from "../components/ui/Modal";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import Modal from "../../components/ui/Modal";
 
 // Import leaflet images
-import leaflet1 from "../components/assets/leaflet1.jpg";
-import leaflet2 from "../components/assets/leaflet2.jpg";
-import leaflet3 from "../components/assets/leaflet3.jpg";
-import leaflet4 from "../components/assets/leaflet4.jpg";
+import leaflet1 from "../../components/assets/leaflet1.jpg";
+import leaflet2 from "../../components/assets/leaflet2.jpg";
+import leaflet3 from "../../components/assets/leaflet3.jpg";
+import leaflet4 from "../../components/assets/leaflet4.jpg";
 
 const OtherCoursesPage: React.FC = () => {
   const leaflets = [leaflet1, leaflet2, leaflet3, leaflet4]; // add all images here

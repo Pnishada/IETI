@@ -15,9 +15,9 @@ import NewsPage from "./pages/news";
 import NewsDetails from "./pages/news/[id]";
 import { Download } from "lucide-react";
 import Downloadpage from "./pages/download";
-import FullTimeCoursesPage from "./pages/full-time-courses";
-import PartTimeCoursesPage from "./pages/part-time-courses";
-import OtherCoursesPage from "./pages/others-courses";
+import FullTimeCoursesPage from "./pages/courses/FullTimeCoursesPage";
+import PartTimeCoursesPage from "./pages/courses/PartTimeCoursesPage";
+import OtherCoursesPage from "./pages/courses/others-courses";
 import ApplyOnline from "./pages/apply-online";
 
 function Router() {
