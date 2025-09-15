@@ -136,7 +136,7 @@ const AboutPage: React.FC = () => {
               {
                 title: "Thousands of Graduates",
                 text: "Over the years, IETI has trained thousands of students combining practical expertise with modern technology.",
-                image: "src/components/assets/Automotive_Eng_img.jpg",
+                image: "src/components/assets/Graduates_img_1.jpg",
               },
             ].map((item, index) => (
               <SwiperSlide key={index}>
