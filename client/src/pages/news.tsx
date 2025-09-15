@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,56 +8,64 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import axios from "axios"; // Import axios for making requests
+import { NewsArticle } from "@/types/news"; // Import the NewsArticle type
 
-interface NewsItem {
-  id: number;
-  title: string;
-  date: string;
-  image: string;
-  link: string;
-  description: string;
-}
-
-const newsData: NewsItem[] = [
+// Default news data (this can be removed later after connecting to backend API)
+const newsData: NewsArticle[] = [
   {
     id: 1,
     title: "IETI Computer Lab Inauguration",
-    date: "Wednesday, 10 September 2025",
+    description: "State-of-the-art computer lab inaugurated at IETI to enhance ICT learning and software training.",
+    content: "Full content here...",
+    published_date: "2025-09-10",
     image: "/images/ieti-news1.jpg",
     link: "/news/1",
-    description:
-      "State-of-the-art computer lab inaugurated at IETI to enhance ICT learning and software training.",
   },
   {
     id: 2,
     title: "Industrial Training Program 2025",
-    date: "Monday, 08 September 2025",
+    description: "IETI students gained hands-on experience in local industries through the annual training program.",
+    content: "Full content here...",
+    published_date: "2025-09-08",
     image: "/images/ieti-news2.jpg",
     link: "/news/2",
-    description:
-      "IETI students gained hands-on experience in local industries through the annual training program.",
   },
   {
     id: 3,
     title: "New Welding Workshop Opened",
-    date: "Friday, 05 September 2025",
+    description: "A modern welding workshop is now available for IETI trainees to learn industry-standard techniques.",
+    content: "Full content here...",
+    published_date: "2025-09-05",
     image: "/images/ieti-news3.jpg",
     link: "/news/3",
-    description:
-      "A modern welding workshop is now available for IETI trainees to learn industry-standard techniques.",
   },
   {
     id: 4,
     title: "IETI Robotics Competition 2025",
-    date: "Monday, 01 September 2025",
+    description: "Students showcased innovative robotics solutions at IETI’s annual Robotics Competition.",
+    content: "Full content here...",
+    published_date: "2025-09-01",
     image: "/images/ieti-news4.jpg",
     link: "/news/4",
-    description:
-      "Students showcased innovative robotics solutions at IETI’s annual Robotics Competition.",
   },
 ];
 
 export default function NewsPage() {
+  const [news, setNews] = useState<NewsArticle[]>(newsData); // Use state to hold fetched news
+
+  useEffect(() => {
+    // Fetch news data from the backend API
+    axios
+      .get("http://localhost:8000/api/news/") // Replace with actual backend API URL
+      .then((response) => {
+        setNews(response.data); // Update state with backend data
+      })
+      .catch((error) => {
+        console.error("Error fetching news:", error); // Log errors if API fails
+      });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -89,7 +97,7 @@ export default function NewsPage() {
               1024: { slidesPerView: 3 },
             }}
           >
-            {newsData.map((item) => (
+            {news.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className="relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
                   <img
@@ -99,7 +107,7 @@ export default function NewsPage() {
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
                     <h2 className="text-lg md:text-xl font-bold">{item.title}</h2>
-                    <p className="text-sm md:text-base">{item.date}</p>
+                    <p className="text-sm md:text-base">{item.published_date}</p>
                     <a
                       href={item.link}
                       className="mt-2 inline-block bg-green-600 px-4 py-2 rounded-full hover:bg-green-800 transition"
@@ -117,7 +125,7 @@ export default function NewsPage() {
         <section>
           <h2 className="text-2xl font-bold mb-6 text-black">Latest News</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {newsData.map((item) => (
+            {news.map((item) => (
               <div
                 key={item.id}
                 className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden group cursor-pointer"
@@ -131,7 +139,7 @@ export default function NewsPage() {
                   <h3 className="text-lg font-semibold mb-2 hover:text-green-600">
                     <a href={item.link}>{item.title}</a>
                   </h3>
-                  <p className="text-sm text-gray-500 mb-2">{item.date}</p>
+                  <p className="text-sm text-gray-500 mb-2">{item.published_date}</p>
                   <p className="text-sm text-gray-600 line-clamp-2">{item.description}</p>
                 </div>
               </div>

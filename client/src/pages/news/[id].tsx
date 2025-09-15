@@ -4,46 +4,53 @@ import { useRoute } from "wouter";
 import { NewsArticle } from "@/types/news";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-const newsData: NewsArticle[] = [
-  {
-    id: 1,
-    title: "NAITA Mobile Application",
-    content: "Building a Skilled Nation with NAITA...",
-    date: "2025-09-10",
-    category: "Technology",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Graduation Ceremony 2025",
-    content: "Celebrating the achievements of our graduates...",
-    date: "2025-08-20",
-    category: "Events",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "New Training Program Launch",
-    content: "Introducing advanced training programs...",
-    date: "2025-09-05",
-    category: "Programs",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    featured: false,
-  },
-];
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const NewsDetails: React.FC = () => {
   const [match, params] = useRoute("/news/:id");
+  const [news, setNews] = useState<NewsArticle | null>(null); // Store single news item
+  const [loading, setLoading] = useState<boolean>(true); // Loading state
+  const [error, setError] = useState<string | null>(null); // Error state
 
-  if (!match) return <div>News not found</div>;
+  useEffect(() => {
+    if (!match) return;
 
-  const newsId = parseInt(params.id);
-  const news = newsData.find((n) => n.id === newsId);
+    const newsId = parseInt(params.id);
+    axios
+      .get(`http://localhost:8000/api/news/${newsId}/`) // API URL to get specific news
+      .then((response) => {
+        setNews(response.data); // Set news data from backend
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError("Failed to fetch news. Please try again later.");
+        setLoading(false);
+      });
+  }, [match, params.id]);
 
-  if (!news) return <div>News not found</div>;
+  // Show loading message while the request is in progress
+  if (loading) {
+    return (
+      <div className="text-center py-20">
+        <p className="text-lg text-gray-700">Loading news...</p>
+      </div>
+    );
+  }
+
+  // If there is an error fetching data
+  if (error) {
+    return (
+      <div className="text-center py-20">
+        <p className="text-lg text-red-500">{error}</p>
+      </div>
+    );
+  }
+
+  // If no matching news article is found
+  if (!news) {
+    return <div>News not found</div>;
+  }
 
   return (
     <>
