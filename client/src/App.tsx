@@ -48,7 +48,7 @@ function Router() {
       </Route>
 
       <Route path="/gallery">
-        <Gallery />
+        <Gallery/>
       </Route>
 
       <Route path="/search">
