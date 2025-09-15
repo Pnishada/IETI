@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Modal from "../components/ui/Modal";
-import { Card, CardContent } from "../components/ui/card";
+import { Card } from "../components/ui/card";
 import { BookOpen } from "lucide-react";
 
 // Swiper imports
@@ -32,7 +32,8 @@ const fullTimeCourses: CourseType[] = [
   {
     title: "Electronics Craftsman (NVQ 4)",
     description: "Fundamental principles of industrial engineering.",
-    details: "This course covers the essential principles of industrial engineering, including workflow optimization, process analysis, and basic industrial operations. Suitable for beginners.",
+    details:
+      "This course covers the essential principles of industrial engineering, including workflow optimization, process analysis, and basic industrial operations. Suitable for beginners.",
     icon: BookOpen,
     image: slider1,
     duration: "03 Year",
@@ -40,13 +41,14 @@ const fullTimeCourses: CourseType[] = [
       "Introduction to Industrial Engineering",
       "Workflow and Process Optimization",
       "Basic Industrial Operations",
-      "Efficiency Techniques"
-    ]
+      "Efficiency Techniques",
+    ],
   },
   {
     title: "Electrician (Special) (NVQ 4)",
     description: "Planning, scheduling, and controlling production systems.",
-    details: "Learn how to plan production, manage resources, and control manufacturing operations for optimal efficiency.",
+    details:
+      "Learn how to plan production, manage resources, and control manufacturing operations for optimal efficiency.",
     icon: BookOpen,
     image: slider2,
     duration: "03 Year",
@@ -54,13 +56,14 @@ const fullTimeCourses: CourseType[] = [
       "Production Scheduling",
       "Resource Allocation",
       "Inventory Control",
-      "Quality Management"
-    ]
+      "Quality Management",
+    ],
   },
   {
     title: "Machinist (Special) (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "03 Year",
@@ -68,13 +71,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Welder (Special) (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "03 Year",
@@ -82,13 +86,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Refrigeration & Air Conditioning Mechanic (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "02 Year",
@@ -96,13 +101,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Carpenter (Furniture) (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "02 Year",
@@ -110,13 +116,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Plumber (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "02 Year",
@@ -124,13 +131,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Construction Supervisor (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "01 Year 06 months",
@@ -138,13 +146,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Book Binder (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "01 Year 06 months",
@@ -152,13 +161,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Draughtperson (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "01 Year 06 months",
@@ -166,13 +176,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Quantity Surveying Assistant (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "01 Year",
@@ -180,13 +191,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Computer Graphic Designer (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "01 Year",
@@ -194,13 +206,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Information & Communication Technology Technician (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "01 Year",
@@ -208,13 +221,14 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
   {
     title: "Aluminium Fabricator (NVQ 4)",
     description: "Methods to improve efficiency and workplace ergonomics.",
-    details: "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
+    details:
+      "Focus on time study, motion study, and ergonomic principles to improve productivity and worker comfort.",
     icon: BookOpen,
     image: slider3,
     duration: "01 Year",
@@ -222,10 +236,9 @@ const fullTimeCourses: CourseType[] = [
       "Time Study",
       "Motion Study",
       "Workplace Ergonomics",
-      "Efficiency Improvements"
-    ]
+      "Efficiency Improvements",
+    ],
   },
-  // Add remaining courses as needed
 ];
 
 const FullTimeCoursesPage: React.FC = () => {
@@ -266,9 +279,12 @@ const FullTimeCoursesPage: React.FC = () => {
         </Swiper>
 
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4 z-10 bg-black/30">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">Full-Time Courses</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+            Full-Time Courses
+          </h1>
           <p className="mt-4 text-sm sm:text-lg max-w-2xl">
-            Explore our 14 full-time industrial engineering courses designed to equip you with skills for local and global industries.
+            Explore our 14 full-time industrial engineering courses designed to
+            equip you with skills for local and global industries.
           </p>
           <button
             onClick={openApplyModal}
@@ -280,26 +296,37 @@ const FullTimeCoursesPage: React.FC = () => {
       </section>
 
       {/* Courses Grid */}
-      <section className="max-w-7xl mx-auto py-16 px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {fullTimeCourses.map((course, index) => (
-          <Card
-            key={index}
-            className="bg-white shadow-md hover:shadow-xl transition transform hover:-translate-y-1 rounded-lg cursor-pointer flex flex-col h-full"
-          >
-            <div
-              className="flex flex-col items-start p-4 sm:p-6 w-full h-full"
-              onClick={() => setSelectedCourse(course)}
+      <section className="max-w-7xl mx-auto py-12 px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-10 text-gray-800">
+          Available Courses
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {fullTimeCourses.map((course, index) => (
+            <Card
+              key={index}
+              className="bg-white shadow-sm hover:shadow-md transition transform hover:-translate-y-1 rounded-xl cursor-pointer flex flex-col h-full"
             >
-              <course.icon className="w-8 sm:w-10 h-8 sm:h-10 text-[#8B1E1E] mb-3 sm:mb-4" />
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 truncate">
-                {course.title}
-              </h3>
-              <p className="mt-1 sm:mt-2 text-gray-600 text-sm sm:text-base line-clamp-3">
-                {course.description}
-              </p>
-            </div>
-          </Card>
-        ))}
+              <div
+                className="flex flex-col items-start p-4 w-full h-full"
+                onClick={() => setSelectedCourse(course)}
+              >
+                {/* Icon */}
+                <course.icon className="w-6 h-6 text-[#8B1E1E] mb-2" />
+
+                {/* Title */}
+                <h3 className="text-base font-semibold text-gray-900 line-clamp-1">
+                  {course.title}
+                </h3>
+
+                {/* Description */}
+                <p className="mt-1 text-gray-600 text-sm line-clamp-2">
+                  {course.description}
+                </p>
+              </div>
+            </Card>
+          ))}
+        </div>
       </section>
 
       {/* Apply Modal */}
@@ -362,7 +389,9 @@ const FullTimeCoursesPage: React.FC = () => {
               className="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg"
             />
             <h2 className="text-2xl font-bold">{selectedCourse.title}</h2>
-            <p className="text-gray-500 font-medium">Duration: {selectedCourse.duration}</p>
+            <p className="text-gray-500 font-medium">
+              Duration: {selectedCourse.duration}
+            </p>
             <p className="text-gray-700">{selectedCourse.details}</p>
             <div>
               <h3 className="font-semibold mb-2">Syllabus:</h3>
@@ -372,7 +401,6 @@ const FullTimeCoursesPage: React.FC = () => {
                 ))}
               </ul>
             </div>
-            
           </div>
         )}
       </Modal>

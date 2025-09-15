@@ -33,12 +33,13 @@ export default function AboutSection() {
               className="text-lg text-slate-600 leading-relaxed"
               data-testid="text-about-description"
             >
-              The Industrial Engineering Training Institute (IETI) is a nationally recognized institute operating under the National Apprentice and Industrial Training Authority (NAITA) in Sri Lanka. 
-              IETI plays a key role in advancing technical and vocational education by providing high-quality training programs in industrial engineering and related fields.
-              With a strong focus on practical skills and industry relevance, IETI equips trainees with the knowledge and expertise needed to meet the growing demands of the industrial sector, 
-              while also contributing to national workforce development.
+              In the 1980s, Sri Lanka saw rapid industrial growth, 
+              creating new opportunities but also highlighting the need for skilled manpower.
+              To address this, the Apprenticeship Training Institute (ATI) was established in 1983 with German government support. 
+              Renamed in 2014 as the Industrial Engineering Training Institute (IETI), Katubedda, it now functions under NAITA with the mission of producing skilled craftsmen for both local and global markets.
+              <br />  
             </p>
-
+            <br />
             <Link href="/about">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-colors"
