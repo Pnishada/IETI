@@ -6,13 +6,21 @@ import Footer from "../../components/Footer";
 import Modal from "../../components/ui/Modal";
 
 // Import leaflet images
-import leaflet1 from "../../components/assets/leaflet1.jpg";
-import leaflet2 from "../../components/assets/leaflet2.jpg";
-import leaflet3 from "../../components/assets/leaflet3.jpg";
-import leaflet4 from "../../components/assets/leaflet4.jpg";
+import leaflet1 from "../../components/assets/Leaflets/1. BB.jpg";
+import leaflet2 from "../../components/assets/Leaflets/2. CGD.jpg";
+import leaflet3 from "../../components/assets/Leaflets/3. CS.jpg";
+import leaflet4 from "../../components/assets/Leaflets/4. EN.jpg";
+import leaflet5 from "../../components/assets/Leaflets/5. ICTT.jpg";
+import leaflet6 from "../../components/assets/Leaflets/6-7. MW - MM.jpg";
+import leaflet7 from "../../components/assets/Leaflets/8. WW.jpg";  
+import leaflet8 from "../../components/assets/Leaflets/9. DRP.jpg";  
+import leaflet9 from "../../components/assets/Leaflets/10. PL.jpg";
+import leaflet10 from "../../components/assets/Leaflets/11. EL.png";
+import leaflet11 from "../../components/assets/Leaflets/CELV.jpg";
+
 
 const OtherCoursesPage: React.FC = () => {
-  const leaflets = [leaflet1, leaflet2, leaflet3, leaflet4]; // add all images here
+  const leaflets = [leaflet1, leaflet2, leaflet3, leaflet4, leaflet5, leaflet6, leaflet7, leaflet8, leaflet9, leaflet10, leaflet11]; // add all images here
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
