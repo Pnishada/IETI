@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
+
 from pathlib import Path
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# Define the base directory for media files
+MEDIA_URL = '/media/'  # URL path to access media files via the browser
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Absolute file system path to store media files
 # Application definition
 
 INSTALLED_APPS = [

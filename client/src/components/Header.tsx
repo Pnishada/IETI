@@ -62,18 +62,19 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3" data-testid="logo">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <GraduationCap className="text-primary-foreground w-5 h-5" />
-            </div>
-            <span className="text-xl font-bold text-slate-800">IETI</span>
-          </Link>
+       <Link href="/" className="flex items-center space-x-3" data-testid="logo">
+  <div className="w-40 h-40 flex items-center justify-center">
+    <img src="/images/logo.jpeg" alt="Logo" className="w-24 h-24 object-cover rounded-full" /> {/* Increased size */}
+  </div>
+</Link>
+
+
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6" data-testid="desktop-nav">
             <Link href="/" className="text-slate-700 hover:text-primary transition-colors">Home</Link>
             <button onClick={() => handleSectionClick('about')} className="text-slate-700 hover:text-primary transition-colors">About</button>
-            <button onClick={() => handleSectionClick('programs')} className="text-slate-700 hover:text-primary transition-colors">Programs</button>
+            {/* <button onClick={() => handleSectionClick('programs')} className="text-slate-700 hover:text-primary transition-colors">Programs</button> */}
 
             {/* Departments Dropdown */}
             <div className="relative">
