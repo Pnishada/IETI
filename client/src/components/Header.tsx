@@ -198,7 +198,7 @@ export default function Header() {
 
             <Link href="/gallery" className="block px-3 py-2 text-slate-700">Gallery</Link>
             <button onClick={() => handleSectionClick('news')} className="block px-3 py-2 text-slate-700 w-full text-left">News</button>
-            <Link href="/contact" className="text-slate-700 hover:text-primary transition-colors">Contact</Link>
+            <Link href="/contact" className="block px-3 py-2 text-slate-700">Contact</Link>
             <Link href="/download">
               <Button className="w-full text-left bg-primary text-primary-foreground px-3 py-2 rounded-lg mt-2">
                 Download
