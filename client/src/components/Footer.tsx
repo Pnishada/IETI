@@ -1,4 +1,5 @@
 import { GraduationCap, Phone, Mail, MapPin } from "lucide-react";
+import { Link, useLocation } from "wouter";
 
 export default function Footer() {
   return (
@@ -9,9 +10,9 @@ export default function Footer() {
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
               <div className="w-9 h-9 bg-primary rounded-full flex items-center justify-center">
-                <GraduationCap className="text-white w-5 h-5" />
+                <img src="/images/logo.jpeg" alt="Logo" className="w-18 h-18 object-cover rounded-full" />
               </div>
-              <span className="text-lg font-bold tracking-wide">IETI</span>
+              
             </div>
             <p className="text-slate-400 text-xs leading-relaxed">
               A government institute dedicated to developing technical excellence

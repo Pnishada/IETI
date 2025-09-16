@@ -21,4 +21,6 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/', include('courseRegistration.urls')),
+    path('slider_images/', include('slider_images.urls')),
+    path('contact_form/', include('contact_form.urls')),
 ]
