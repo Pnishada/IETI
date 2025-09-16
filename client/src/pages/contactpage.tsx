@@ -8,7 +8,6 @@ import { Textarea } from "../components/ui/textarea";
 import { Button } from "../components/ui/button";
 import { MapPin, Mail, Phone } from "lucide-react";
 
-// Example hero image (replace with your actual image)
 import heroImg from "../components/assets/training_center_building.webp";
 
 export default function Contact() {
@@ -23,11 +22,27 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Message submitted successfully!");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    try {
+      const response = await fetch('http://127.0.0.1:8000/contact_form/submit/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Message submitted successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
+      } else {
+        alert("There was an error submitting the form. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting the form. Please try again.");
+    }
   };
 
   return (
@@ -135,17 +150,6 @@ export default function Contact() {
             </Button>
           </form>
         </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="w-full h-[450px]">
-        <iframe
-          className="w-full h-full"
-          loading="lazy"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.7724825277223!2d79.8875065!3d6.7975124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2453cbe461e05%3A0x69474ed64ee01f4!2sIndustrial%20Engineering%20Training%20Institute!5e0!3m2!1sen!2slk!4v1758001929954!5m2!1sen!2slk"
-          allowFullScreen
-          title="IETI Location"
-        ></iframe>
       </section>
 
       <Footer />
