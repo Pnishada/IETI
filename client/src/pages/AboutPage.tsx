@@ -131,7 +131,7 @@ const AboutPage: React.FC = () => {
               {
                 title: "Hands-On Learning",
                 text: "Through industry-focused training and practical learning, we empower individuals to build successful careers.",
-                image: "src/components/assets/Electrical_Eng_img.jpg",
+                image: "src/components/assets/Hands-On-Learning.jpg",
               },
               {
                 title: "Thousands of Graduates",

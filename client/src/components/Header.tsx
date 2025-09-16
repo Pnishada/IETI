@@ -83,11 +83,11 @@ export default function Header() {
               </button>
               {isDepartmentsDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-slate-200 shadow-lg rounded-lg z-50">
-                  <Link href="/departments/01" className="block px-4 py-2 hover:bg-gray-100">Department 01</Link>
-                  <Link href="/departments/02" className="block px-4 py-2 hover:bg-gray-100">Department 02</Link>
-                  <Link href="/departments/03" className="block px-4 py-2 hover:bg-gray-100">Department 03</Link>
-                  <Link href="/departments/04" className="block px-4 py-2 hover:bg-gray-100">Department 04</Link>
-                  <Link href="/departments/05" className="block px-4 py-2 hover:bg-gray-100">Department 05</Link>
+                  <Link href="/departments/electronics" className="block px-4 py-2 hover:bg-gray-100">Electronics Division</Link>
+                  <Link href="/departments/electrical" className="block px-4 py-2 hover:bg-gray-100">Electrical Division </Link>
+                  <Link href="/departments/mechanical" className="block px-4 py-2 hover:bg-gray-100">Mechanical Division</Link>
+                  <Link href="/departments/construction" className="block px-4 py-2 hover:bg-gray-100">Construction Division </Link>
+                  <Link href="/departments/woodwork" className="block px-4 py-2 hover:bg-gray-100">Wood Work Division </Link>
                 </div>
               )}
             </div>
@@ -169,11 +169,11 @@ export default function Header() {
               </button>
               {isDepartmentsDropdownOpen && (
                 <div className="pl-6">
-                  <Link href="/departments/01" className="block px-3 py-2 hover:bg-gray-100">Department 01</Link>
-                  <Link href="/departments/02" className="block px-3 py-2 hover:bg-gray-100">Department 02</Link>
-                  <Link href="/departments/03" className="block px-3 py-2 hover:bg-gray-100">Department 03</Link>
-                  <Link href="/departments/04" className="block px-3 py-2 hover:bg-gray-100">Department 04</Link>
-                  <Link href="/departments/05" className="block px-3 py-2 hover:bg-gray-100">Department 05</Link>
+                  <Link href="/departments/electronics" className="block px-3 py-2 hover:bg-gray-100">Electronics Division</Link>
+                  <Link href="/departments/electrical" className="block px-3 py-2 hover:bg-gray-100">Electrical Division </Link>
+                  <Link href="/departments/mechanical" className="block px-3 py-2 hover:bg-gray-100">Mechanical Division</Link>
+                  <Link href="/departments/construction" className="block px-3 py-2 hover:bg-gray-100">Construction Division </Link>
+                  <Link href="/departments/woodwork" className="block px-3 py-2 hover:bg-gray-100">Wood Work Division </Link>
                 </div>
               )}
             </div>

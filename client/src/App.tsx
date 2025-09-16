@@ -1,10 +1,10 @@
 import { Switch, Route } from "wouter";
 import Home from "@/pages/home";
-import Departments01 from "./pages/departments/depatment01";
-import Departments02 from "./pages/departments/depatment02";
-import Departments03 from "./pages/departments/depatment03";
-import Departments04 from "./pages/departments/depatment04";
-import Departments05 from "./pages/departments/depatment05";
+import Electronics_Departments from "./pages/departments/Electronics";
+import Electrical_Departments from "./pages/departments/Electrical";
+import Mechanical_Departments from "./pages/departments/Mechanical";
+import Construction_Departments from "./pages/departments/Construction";
+import Woodwork_Departments from "./pages/departments/Woodwork";
 import Gallery from "@/pages/gallery";
 import Search from "@/pages/search";
 import NotFound from "@/pages/not-found";
@@ -27,20 +27,20 @@ function Router() {
         <Home />
       </Route>
 
-      <Route path="/departments/01">
-        <Departments01 />
+      <Route path="/departments/electronics">
+        < Electronics_Departments/>
       </Route>
-      <Route path="/departments/02">
-        <Departments02 />
+      <Route path="/departments/electrical">
+        <Electrical_Departments />
       </Route>
-      <Route path="/departments/03">
-        <Departments03 />
+      <Route path="/departments/mechanical">
+        < Mechanical_Departments/>
       </Route>
-      <Route path="/departments/04">
-        <Departments04 />
+      <Route path="/departments/construction">
+        <Construction_Departments/>
       </Route>
-      <Route path="/departments/05">
-        <Departments05 />
+      <Route path="/departments/woodwork">
+        < Woodwork_Departments/>
       </Route>
 
       <Route path="/about">
