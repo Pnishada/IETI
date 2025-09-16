@@ -19,6 +19,7 @@ import FullTimeCoursesPage from "./pages/courses/FullTimeCoursesPage";
 import PartTimeCoursesPage from "./pages/courses/PartTimeCoursesPage";
 import OtherCoursesPage from "./pages/courses/others-courses";
 import ApplyOnline from "./pages/apply-online";
+import Contact from "./pages/contactpage";
 
 function Router() {
   return (
@@ -89,6 +90,10 @@ function Router() {
 
       <Route path="/apply-online">
         <ApplyOnline />
+      </Route>
+      
+      <Route path="/contact">
+        <Contact />
       </Route>
 
       {/* Catch-all 404 route */}
